@@ -26,7 +26,7 @@ class AddressRequest extends FormRequest {
     {
         return [
             'pin_code' => ['required', 'digits_between:6,6'],
-            'locality' => ['required', 'regex:/^[\pL\s\-]+$/u', 'max:100'],
+            'locality' => ['required', 'max:100'],
             'name'     => ['required', 'regex:/^[\pL\s\-]+$/u', 'max:100'],
             'address'  => ['required', 'max:150'],
             'mobile'   => ['required', 'digits_between:10,10'],

@@ -81,7 +81,7 @@
                 });
             },
             deleteAddress: function () {
-                let shouldDelete = swal({
+                let shouldDelete = Swal.fire({
                     title: 'Are you sure?',
                     text: "You won't be able to revert this!",
                     type: 'warning',

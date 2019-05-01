@@ -15,14 +15,17 @@
                                               :key="address.id">
                             </checkout-address>
 
-                            <label class="col-lg-4 pointer"
+                            <label class="col-lg-4 tw-cursor-pointer"
                                    @click="showAddressModal">
                                 <div class="card rounded-full badge-pill address-row">
-                                    <div class="card-body d-flex flex-column">
-                                        <div style="margin-left: 5rem !important; margin-top: 5rem !important;">
-                                            <i class="fe fe-plus-circle fa-3x"></i>
+                                    <div class="card-body">
+                                        <div class="tw-mt-20">
+                                            <svg class="tw-fill-current tw-ml-20 tw-h-8 tw-w-8" xmlns="http://www.w3.org/2000/svg"
+                                                 viewBox="0 0 20 20">
+                                                <path d="M11 9h4v2h-4v4H9v-4H5V9h4V5h2v4zm-1 11a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16z"/>
+                                            </svg>
+                                            <p class="font-weight-bold tw-text-xl text-center">Add new address</p>
                                         </div>
-                                        <p class="font-weight-bold text-center">Add new address</p>
                                     </div>
                                 </div>
                             </label>

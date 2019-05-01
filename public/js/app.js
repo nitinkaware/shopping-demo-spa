@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + "." + {"0":"650e3afe2e69a68a303c","1":"ca0f7a64c47529d97d27","2":"cc9ffaa4b6f3b794bd0c","3":"6f0a920893c75fbf2158","4":"262a835a2058ce301213","5":"d4f739ebcbbb853466a4","6":"8fda5aa31cacc1eaa189","7":"8be9a8b04b00cf5bfeda","8":"2ab25aaa833484567ced","9":"36427196aaac1472b630","10":"21435ac10fb0d98e15c5","11":"96b51b321a18949023d1","12":"914d9a0dbc56647ebdfa","13":"4c7e8a447f36af7b42a1","14":"d3698f02475a05971208","15":"e722a2e6cefd2b1aaae7"}[chunkId] + ".js"
+/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + "." + {"0":"1606cbf7bf866e9d0703","1":"ca0f7a64c47529d97d27","2":"5feb28353bfd13c74414","3":"56c143dbffb72e5fc336","4":"7a0fd1f109293fdf51ed","5":"7154a1be243bc1750ee6","6":"b2a932599436f5361c29","7":"6cc004c4859346ea6567","8":"2ab25aaa833484567ced","9":"36427196aaac1472b630","10":"21435ac10fb0d98e15c5","11":"96b51b321a18949023d1","12":"914d9a0dbc56647ebdfa","13":"4c7e8a447f36af7b42a1","14":"429d5e028e0f21ef112b","15":"519a509b1643736e8781","16":"77e6fc76756467ab8e73"}[chunkId] + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -1875,6 +1875,22 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -9667,7 +9683,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.relative {\n    position: relative !important;\n}\n.rounded-full {\n    border-radius: 12px;\n}\n", ""]);
+exports.push([module.i, ".relative {\n  position: relative !important;\n}\n.rounded-full {\n  border-radius: 12px;\n}\n", ""]);
 
 // exports
 
@@ -37103,8 +37119,33 @@ var render = function() {
             on: { click: _vm.redirectToCart }
           },
           [
-            _c("i", { staticClass: "fe fe-shopping-cart" }),
-            _vm._v("\n            Cart\n            "),
+            _c(
+              "svg",
+              {
+                staticClass: "tw-stroke-current tw-inline-block tw-h-5 tw-w-5",
+                attrs: {
+                  viewBox: "0 0 24 24",
+                  xmlns: "http://www.w3.org/2000/svg",
+                  fill: "none",
+                  "stroke-width": "2",
+                  "stroke-linecap": "round",
+                  "stroke-linejoin": "round"
+                }
+              },
+              [
+                _c("circle", { attrs: { cx: "8", cy: "21", r: "2" } }),
+                _vm._v(" "),
+                _c("circle", { attrs: { cx: "20", cy: "21", r: "2" } }),
+                _vm._v(" "),
+                _c("path", {
+                  attrs: {
+                    d:
+                      "M5.67 6H23l-1.68 8.39a2 2 0 0 1-2 1.61H8.75a2 2 0 0 1-2-1.74L5.23 2.74A2 2 0 0 0 3.25 1H1"
+                  }
+                })
+              ]
+            ),
+            _vm._v("\n\n            Cart\n            "),
             !!_vm.itemsInCartCount
               ? _c(
                   "span",

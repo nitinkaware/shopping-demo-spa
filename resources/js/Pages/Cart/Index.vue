@@ -39,19 +39,23 @@
                               fill="#fbc02d"/>
                     </svg>
 
-                    <h3 class="mt-3 text-center">
+                    <h3 class="mt-3 text-center tw-text-2xl tw-text-gray-900">
                         Hey, it feels so light!
                     </h3>
                     <span class="text-secondary text-center">There is nothing in your cart. Lets add some item.</span>
                     <router-link to="/my/wishlist"
                                  class="btn btn-instagram mt-3">
+                        <svg class="tw-inline tw-fill-current tw-h-4 tw-w-4" xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 20 20">
+                            <path d="M15 9h-3v2h3v3h2v-3h3V9h-3V6h-2v3zM0 3h10v2H0V3zm0 8h10v2H0v-2zm0-4h10v2H0V7zm0 8h10v2H0v-2z"/>
+                        </svg>
                         ADD ITEM FROM WISHLIST
                     </router-link>
                 </div>
                 <div class="col-12"
                      v-else>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12 tw-text-2xl tw-text-base tw-mb-2">
                             <div class="float-left">
                                 <h3>My Shopping Cart ({{ totalItemsInCartCount }})</h3>
                             </div>
@@ -108,10 +112,16 @@
                                     <td class="text-center">
                                         <div>{{ item.price }}</div>
                                     </td>
-                                    <td class="w-1"><a href="#"
-                                                       class="icon">
-                                        <i class="fe fe-trash"
-                                           @click="removeItemFromCart(item.id)"></i></a>
+                                    <td class="w-1">
+                                        <a href="#"
+                                           class="icon"
+                                           @click="removeItemFromCart(item.id)">
+                                            <svg class="tw-h-5 tw-w-5"
+                                                 xmlns="http://www.w3.org/2000/svg"
+                                                 viewBox="0 0 20 20">
+                                                <path d="M6 2l2-2h4l2 2h4v2H2V2h4zM3 6h14l-1 14H4L3 6zm5 2v10h1V8H8zm3 0v10h1V8h-1z"/>
+                                            </svg>
+                                        </a>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -224,7 +234,7 @@
                                 'success'
                             );
                         }).catch((error) => {
-                            swal(
+                            Swal.fire(
                                 'Oops!',
                                 'Something went wrong!',
                                 'error'

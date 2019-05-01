@@ -25,7 +25,8 @@
                                            @blur="fetchAddressDetails"
                                            tabindex="1">
                                     <div class="invalid-feedback">{{ form.errors.get('pin_code') }}</div>
-                                    <span class="input-icon-addon" v-if="this.fetching.isPending">
+                                    <span class="input-icon-addon"
+                                          v-if="this.fetching.isPending">
                                         <i class="fa fa-spinner fa-spin"></i>
                                     </span>
                                 </div>
@@ -135,7 +136,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <button class="btn btn-lg btn-outline-secondary ml-9 mr-3"
+                            <button class="btn btn-lg btn-outline-primary ml-9 mr-3"
                                     tabindex="9"
                                     @click="reset">
                                 CANCEL
@@ -146,7 +147,11 @@
                                     :disabled="form.isPending"
                                     tabindex="10"
                                     @click="handleSubmit">
-                                <i class="fe fe-save"></i>
+                                <svg class="tw-inline tw-fill-current tw-h-4 tw-w-4"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     viewBox="0 0 20 20">
+                                    <path d="M0 2C0 .9.9 0 2 0h14l4 4v14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5 0v6h10V2H5zm6 1h3v4h-3V3z"/>
+                                </svg>
                                 SAVE
                             </button>
                         </div>

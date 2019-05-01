@@ -47,7 +47,8 @@
            class="btn btn-primary btn-block"
            :class="isAdding ? 'disabled' : ''"
            @click="addToCart">
-            <i :class="itemCartClass"></i>
+
+            <shopping-bag></shopping-bag>
             &nbsp; {{ itemCartText }}
         </a>
 
@@ -58,6 +59,9 @@
 
     export default {
         props: ['productId', 'productName', 'variants', 'orderCount', 'shares', 'propItemsInCart'],
+        components: {
+            'shopping-bag': () => import('../SVG/LocationShopping')
+        },
         data: function () {
             return {
                 isAdding: false,
