@@ -35,6 +35,7 @@
                         <div class="border-0 card">
                             <div class="card-body d-flex flex-column">
                                 <div class="border-bottom">
+                                    <p class="tw-mb-1 tw-text-gray-500">ORDER SUMMERY</p>
                                     <p class="font-weight-bold text-uppercase mb-2">{{ cart.length }} Item(s)</p>
                                 </div>
                                 <div class="mt-2">
