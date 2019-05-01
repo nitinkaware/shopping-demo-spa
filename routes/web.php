@@ -2,13 +2,6 @@
 
 Auth::routes();
 
-//Route::get('/products/all', 'AllProductsListingController@index');
-//Route::get('/products/{category}/{product}/buy', 'ProductsController@index')->name('products.index');
-//Route::get('/products/{category}', 'CategoryProductsListingController@index')->name('category.products.index');
-//Route::get('/my/wishlist/', 'WishListController@index')->name('wishlist.index');
-//Route::get('/checkout/cart/', 'CartCheckoutController@index')->name('checkout.cart.index');
-//Route::get('/checkout/address/', 'AddressCheckoutController@index')->name('checkout.address.index');
-
 // Api Routes.
 Route::namespace('API')->prefix('api/v1')->name('api.')->group(function () {
     Route::get('/products/{category}/{product}/buy', 'BuyProductController@index')->name('buy-product.index');
