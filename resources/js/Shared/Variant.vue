@@ -70,9 +70,14 @@
                 itemsInCart: collect(this.propItemsInCart)
             }
         },
-        mounted() {
-            this.selectedColorId = this.variants[0].id;
-            this.selectedSizeId = this.sizes.length ? this.sizes[0].id : null;
+        watch: {
+            productId: {
+                immediate: true,
+                handler() {
+                    this.selectedColorId = this.variants[0].id;
+                    this.selectedSizeId = this.sizes.length ? this.sizes[0].id : null;
+                },
+            },
         },
         methods: {
             addToCart() {
