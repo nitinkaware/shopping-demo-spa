@@ -15,11 +15,9 @@
 
 <script>
     export default {
-        props: ['propIsWishlisted', 'productId'],
+        props: ['isWishlisted', 'productId'],
         data: function () {
-            return {
-                isWishlisted: this.propIsWishlisted
-            }
+            return {}
         },
         methods: {
             toggleWishList: function () {

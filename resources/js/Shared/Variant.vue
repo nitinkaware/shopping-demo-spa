@@ -17,7 +17,6 @@
                  :key="variant.id">
                 <label class="selectgroup-item">
                     <input type="radio"
-                           name="color"
                            class="selectgroup-input"
                            :value="variant.id"
                            v-model="selectedColorId">

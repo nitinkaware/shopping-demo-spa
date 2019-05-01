@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-body">
 
-            <wishlist :propIsWishlisted="product.is_wish_listed"
+            <wishlist :isWishlisted="product.is_wish_listed"
                       :productId="product.id"
             ></wishlist>
 
