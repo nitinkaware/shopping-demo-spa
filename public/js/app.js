@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + "." + {"0":"1606cbf7bf866e9d0703","1":"ca0f7a64c47529d97d27","2":"5feb28353bfd13c74414","3":"56c143dbffb72e5fc336","4":"7a0fd1f109293fdf51ed","5":"7154a1be243bc1750ee6","6":"b2a932599436f5361c29","7":"6cc004c4859346ea6567","8":"2ab25aaa833484567ced","9":"36427196aaac1472b630","10":"21435ac10fb0d98e15c5","11":"96b51b321a18949023d1","12":"914d9a0dbc56647ebdfa","13":"4c7e8a447f36af7b42a1","14":"429d5e028e0f21ef112b","15":"519a509b1643736e8781","16":"77e6fc76756467ab8e73"}[chunkId] + ".js"
+/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + "." + {"0":"21126c7e423a6911f0f9","1":"de3c2c71bd1bfc5aebbd","2":"abcd8b5f37b3db567332","3":"35550f8160452ee86a92","4":"ceda087da9bfe0dd88fb","5":"dc64a78a5a2370e23ec9","6":"d5281e7739f4ecfc2ed8","7":"2f57d9611879f92b18b6","8":"d6499dbfa2a4f4c449b5","9":"10bb68e9348a62d4b3ad","10":"0361d3828d16da7b97e6","11":"0e410f632bef48dad821","12":"27aa3cb35b27c253ae2c","13":"946b20eddae31a5edcee","14":"eb9572026135b5bc97fd","15":"fb970816f353f778b2e6","16":"07eb49525b69874c116c","17":"f586b27933863a21796e"}[chunkId] + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -52190,52 +52190,58 @@ window.Swal = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ([{
-  path: '/products/:slug/:productId/buy',
-  name: 'buy-product',
-  component: function component() {
-    return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./Pages/BuyProduct/Index */ "./resources/js/Pages/BuyProduct/Index.vue"));
-  }
-}, {
-  path: '/products/:slug',
-  name: 'product.index',
-  component: function component() {
-    return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./Pages/Products/Index */ "./resources/js/Pages/Products/Index.vue"));
-  }
-}, {
-  path: '/checkout/cart',
-  name: 'cart.index',
-  component: function component() {
-    return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./Pages/Cart/Index */ "./resources/js/Pages/Cart/Index.vue"));
-  }
-}, {
-  path: '/checkout/address',
-  name: 'cart.address.index',
-  component: function component() {
-    return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./Pages/Address/Index */ "./resources/js/Pages/Address/Index.vue"));
-  }
-}, {
-  path: '/my/wishlist',
-  name: 'my.wishlist.index',
-  component: function component() {
-    return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./Pages/WishList/Index */ "./resources/js/Pages/WishList/Index.vue"));
-  }
-}, {
   path: '/',
   name: 'home',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./Pages/Products/Index */ "./resources/js/Pages/Products/Index.vue"));
+    return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./Pages/Products/Index */ "./resources/js/Pages/Products/Index.vue"));
   }
 }, {
   path: '/login',
   name: 'login',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./Pages/Login */ "./resources/js/Pages/Login.vue"));
+    return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./Pages/Login */ "./resources/js/Pages/Login.vue"));
   }
 }, {
   path: '/register',
   name: 'register',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./Pages/Register */ "./resources/js/Pages/Register.vue"));
+    return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./Pages/Register */ "./resources/js/Pages/Register.vue"));
+  }
+}, {
+  path: '/products/:slug/:productId/buy',
+  name: 'buy-product',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./Pages/BuyProduct/Index */ "./resources/js/Pages/BuyProduct/Index.vue"));
+  }
+}, {
+  path: '/products/:slug',
+  name: 'product.index',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./Pages/Products/Index */ "./resources/js/Pages/Products/Index.vue"));
+  }
+}, {
+  path: '/checkout/cart',
+  name: 'cart.index',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./Pages/Cart/Index */ "./resources/js/Pages/Cart/Index.vue"));
+  }
+}, {
+  path: '/checkout/address',
+  name: 'cart.address.index',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./Pages/Address/Index */ "./resources/js/Pages/Address/Index.vue"));
+  }
+}, {
+  path: '/checkout/payment',
+  name: 'cart.payment.index',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./Pages/Payment/Index */ "./resources/js/Pages/Payment/Index.vue"));
+  }
+}, {
+  path: '/my/wishlist',
+  name: 'my.wishlist.index',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./Pages/WishList/Index */ "./resources/js/Pages/WishList/Index.vue"));
   }
 }]);
 
