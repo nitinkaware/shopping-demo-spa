@@ -44,11 +44,14 @@
         <a v-if="!! price"
            :href="itemAlreadyInCart ? cartRoute : 'javascript:void(0)'"
            class="btn btn-primary btn-block"
-           :class="isAdding ? 'disabled' : ''"
+           :class="isAdding ? 'disabled btn-loading' : ''"
            @click="addToCart">
 
-            <shopping-bag></shopping-bag>
-            &nbsp; {{ itemCartText }}
+            <keep-alive>
+                <component v-bind:is="currentSvgComponent"></component>
+            </keep-alive>
+
+            {{ itemCartText }}
         </a>
 
     </div>
@@ -59,7 +62,8 @@
     export default {
         props: ['productId', 'productName', 'variants', 'orderCount', 'shares', 'propItemsInCart'],
         components: {
-            'shopping-bag': () => import('../SVG/LocationShopping')
+            'shopping-bag': () => import('../SVG/LocationShopping'),
+            'arrow-thin-right': () => import('../SVG/ArrowThinRight')
         },
         data: function () {
             return {
@@ -114,6 +118,9 @@
             }
         },
         computed: {
+            currentSvgComponent: function () {
+               return this.itemAlreadyInCart ? 'arrow-thin-right' : 'shopping-bag';
+            },
             itemCartClass: function () {
                 if (this.isAdding) {
                     return 'fa fa-spinner fa-spin';
