@@ -29,6 +29,8 @@ class AddressRequest extends FormRequest {
             'locality' => ['required', 'max:100'],
             'name'     => ['required', 'regex:/^[\pL\s\-]+$/u', 'max:100'],
             'address'  => ['required', 'max:150'],
+            'state'    => ['required'],
+            'city'     => ['required'],
             'mobile'   => ['required', 'digits_between:10,10'],
         ];
     }
@@ -77,5 +79,15 @@ class AddressRequest extends FormRequest {
         return [
             'mobile.digits_between' => 'Mobile should be exactly 10 numbers.',
         ];
+    }
+
+    public function state()
+    {
+        return $this->state;
+    }
+
+    public function city()
+    {
+        return $this->city;
     }
 }

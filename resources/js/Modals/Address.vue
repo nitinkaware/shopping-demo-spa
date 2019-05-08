@@ -55,9 +55,10 @@
                                 <div class="input-icon mb-3">
                                     <input type="text"
                                            class="form-control"
-                                           readonly
                                            v-model="city"
+                                           :class="form.errors.has('city') ? 'is-invalid' : ''"
                                            tabindex="3">
+                                    <div class="invalid-feedback">{{ form.errors.get('city') }}</div>
                                 </div>
                             </div>
                         </div>
@@ -67,9 +68,10 @@
                                 <div class="input-icon mb-3">
                                     <input type="text"
                                            class="form-control"
-                                           readonly
+                                           :class="form.errors.has('state') ? 'is-invalid' : ''"
                                            v-model="state"
                                            tabindex="4">
+                                    <div class="invalid-feedback">{{ form.errors.get('state') }}</div>
                                 </div>
                             </div>
                         </div>
@@ -233,6 +235,8 @@
                     name: this.name,
                     address: this.address,
                     mobile: this.mobile,
+                    state: this.state,
+                    city: this.city,
                     is_default: this.is_default,
                 }).then(response => {
                     this.fireAfterFetchEvents(response);

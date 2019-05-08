@@ -18,13 +18,24 @@ class UpdateAddress extends CreateAddress {
      * @param $name
      * @param $textAddress
      * @param $mobile
-     * @param $isDefault
+     * @param null $isDefault
+     * @param null $state
+     * @param null $city
      */
-    public function __construct(Address $address, $pinCode, $locality, $name, $textAddress, $mobile, $isDefault)
+    public function __construct(
+        Address $address,
+        $pinCode,
+        $locality,
+        $name,
+        $textAddress,
+        $mobile,
+        $isDefault,
+        $state = null,
+        $city = null)
     {
         $this->address = $address;
 
-        parent::__construct($pinCode, $locality, $name, $textAddress, $mobile, $isDefault);
+        parent::__construct($pinCode, $locality, $name, $textAddress, $mobile, $isDefault, $state, $city);
     }
 
     public static function fromRequest(AddressRequest $request)
@@ -36,7 +47,9 @@ class UpdateAddress extends CreateAddress {
             $request->name(),
             $request->textAddress(),
             $request->mobile(),
-            $request->isDefault()
+            $request->isDefault(),
+            $request->state(),
+            $request->city()
         );
     }
 
@@ -54,8 +67,8 @@ class UpdateAddress extends CreateAddress {
         return tap($this->address)->update([
             'pin_code'   => $this->pinCode,
             'town'       => $this->locality,
-            'distinct'   => $responseJson['city'] ?? '',
-            'state'      => $responseJson['stateName'] ?? '',
+            'distinct'   => $responseJson['city'] ?? $this->city,
+            'state'      => $responseJson['stateName'] ?? $this->state,
             'state_code' => $responseJson['state'] ?? '',
             'name'       => $this->name,
             'address'    => $this->textAddress,

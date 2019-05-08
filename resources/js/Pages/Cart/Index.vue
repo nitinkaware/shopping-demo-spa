@@ -227,12 +227,6 @@
                             this.$root.$emit('removedFromCart', {
                                 itemsInCartCount: this.itemsInCart.length
                             });
-
-                            Swal.fire(
-                                'Removed!',
-                                'Your item has been removed.',
-                                'success'
-                            );
                         }).catch((error) => {
                             Swal.fire(
                                 'Oops!',

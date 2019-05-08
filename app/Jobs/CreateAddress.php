@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Http\Requests\AddressRequest;
+use GuzzleHttp\Exception\RequestException;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 class CreateAddress {
@@ -21,6 +22,10 @@ class CreateAddress {
 
     protected $isDefault;
 
+    protected $state;
+
+    protected $city;
+
     /**
      * Create a new job instance.
      *
@@ -30,8 +35,19 @@ class CreateAddress {
      * @param $textAddress
      * @param $mobile
      * @param $isDefault
+     * @param null $state
+     * @param null $city
      */
-    public function __construct($pinCode, $locality, $name, $textAddress, $mobile, $isDefault)
+    public function __construct(
+        $pinCode,
+        $locality,
+        $name,
+        $textAddress,
+        $mobile,
+        $isDefault,
+        $state = null,
+        $city = null
+    )
     {
         $this->pinCode = $pinCode;
         $this->locality = $locality;
@@ -39,6 +55,8 @@ class CreateAddress {
         $this->textAddress = $textAddress;
         $this->mobile = $mobile;
         $this->isDefault = $isDefault;
+        $this->state = $state;
+        $this->city = $city;
     }
 
     public static function fromRequest(AddressRequest $request)
@@ -49,7 +67,9 @@ class CreateAddress {
             $request->name(),
             $request->textAddress(),
             $request->mobile(),
-            $request->isDefault()
+            $request->isDefault(),
+            $request->state(),
+            $request->city()
         );
     }
 
@@ -67,8 +87,8 @@ class CreateAddress {
         return auth()->user()->addresses()->create([
             'pin_code'   => $this->pinCode,
             'town'       => $this->locality,
-            'distinct'   => $responseJson['city'] ?? '',
-            'state'      => $responseJson['stateName'] ?? '',
+            'distinct'   => $responseJson['city'] ?? $this->city,
+            'state'      => $responseJson['stateName'] ?? $this->state,
             'state_code' => $responseJson['state'] ?? '',
             'name'       => $this->name,
             'address'    => $this->textAddress,
@@ -79,11 +99,15 @@ class CreateAddress {
 
     protected function getStateCity()
     {
-        $responseJson = $this->dispatchNow(
-            new FetchStateCityByPin($this->pinCode)
-        );
+        try {
+            $responseJson = $this->dispatchNow(
+                new FetchStateCityByPin($this->pinCode)
+            );
 
-        return $responseJson;
+            return $responseJson;
+        } catch (RequestException $e) {
+            return [];
+        }
     }
 
     protected function markAsDefaultIfNeeded(): void
