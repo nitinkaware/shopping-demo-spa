@@ -60,7 +60,7 @@
                                 <h3>My Shopping Cart ({{ totalItemsInCartCount }})</h3>
                             </div>
                             <div class="float-right">
-                                <h4>Total: {{ total }}</h4>
+                                <h4>Total: {{ total | toIndianMoneyFormat }}</h4>
                             </div>
                         </div>
                     </div>
@@ -165,13 +165,13 @@
                 return this.itemsInCart.length;
             },
             total: function () {
-                return indian_format(collect(this.itemsInCart).map(function (item) {
+                return collect(this.itemsInCart).map(function (item) {
                     let productTotal = item.price * item.quantity;
                     let tax = ((productTotal * item.product.tax.value) / 100);
                     item['calculated_tax'] = tax;
                     item['calculated_price'] = (productTotal) + tax;
                     return item;
-                }).sum('calculated_price'));
+                }).sum('calculated_price');
             },
             totalItemsInCartCount: function () {
                 return collect(this.itemsInCart).count();

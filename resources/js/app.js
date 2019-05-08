@@ -14,7 +14,9 @@ Vue.use(VueRouter);
 Vue.component('loading', require('vue-loading-overlay'));
 Vue.component('cart-menu', require('./Shared/CartMenu').default);
 
-window.indian_format = function(amount) {
+Vue.filter('toIndianMoneyFormat', function (amount) {
+    if (!amount) return '';
+
     let x = amount;
     x = x.toString();
     x = x.replaceAll(",", '');
@@ -23,13 +25,13 @@ window.indian_format = function(amount) {
     if (otherNumbers !== '') lastThree = ',' + lastThree;
 
     return otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
-};
+});
 
 Array.prototype.remove = function (element) {
     this.splice(this.indexOf(element), 1);
 };
 
-String.prototype.replaceAll = function(search, replacement) {
+String.prototype.replaceAll = function (search, replacement) {
     let target = this;
     return target.replace(new RegExp(search, 'g'), replacement);
 };
