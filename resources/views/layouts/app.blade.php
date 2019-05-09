@@ -60,46 +60,48 @@
                                     Register
                                 </router-link>
                             </div>
-                        @else
-                            <div class="dropdown">
-                                <a href="#"
-                                   class="nav-link pr-0 leading-none"
-                                   data-toggle="dropdown">
+                            @else
+                                <div class="dropdown">
+                                    <a href="#"
+                                       class="nav-link pr-0 leading-none"
+                                       data-toggle="dropdown">
                                 <span class="avatar"
-                                      style="background-image: url()"></span>
-                                    <span class="ml-2 d-none d-lg-block">
+                                      style="background-image: url('{{ auth()->user()->avatar }}')"></span>
+                                        <span class="ml-2 d-none d-lg-block">
+
                                     <span class="text-default">{{ auth()->user()->name }}</span>
                                         <small class="text-muted d-block mt-1">Administrator</small>
                                     </span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                    <a class="dropdown-item"
-                                       href="#">
-                                        <i class="dropdown-icon fe fe-user"></i> Profile
+                                        
                                     </a>
+                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                        <a class="dropdown-item"
+                                           href="#">
+                                            <i class="dropdown-icon fe fe-user"></i> Profile
+                                        </a>
 
-                                    <router-link to="/my/wishlist"
-                                                 class="dropdown-item">
-                                        <i class="dropdown-icon fe fe-user"></i>
-                                        My Wishlist
-                                    </router-link>
+                                        <router-link to="/my/wishlist"
+                                                     class="dropdown-item">
+                                            <i class="dropdown-icon fe fe-user"></i>
+                                            My Wishlist
+                                        </router-link>
 
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item"
-                                       href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item"
+                                           href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
-                                        <i class="dropdown-icon fe fe-log-out"></i> @lang('Sign out')
-                                    </a>
-                                    <form id="logout-form"
-                                          action="{{ route('logout') }}"
-                                          method="POST"
-                                          style="display: none;">
-                                        @csrf
-                                    </form>
+                                            <i class="dropdown-icon fe fe-log-out"></i> @lang('Sign out')
+                                        </a>
+                                        <form id="logout-form"
+                                              action="{{ route('logout') }}"
+                                              method="POST"
+                                              style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </div>
                                 </div>
-                            </div>
-                        @endguest
+                                @endguest
                     </div>
 
                     <a href="#"
@@ -123,7 +125,7 @@
                                    placeholder="Search&hellip;"
                                    tabindex="1">
                             <div class="input-icon-addon">
-                                <i class="fe fe-search"></i>
+                                @include('svg.search')
                             </div>
                         </form>
                     </div>
