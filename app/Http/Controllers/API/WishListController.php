@@ -8,8 +8,7 @@ use App\Http\Resources\ProductResource;
 use App\Jobs\CreateWishList;
 use App\Product;
 
-class WishListController extends Controller
-{
+class WishListController extends Controller {
 
     function __construct()
     {
@@ -18,9 +17,11 @@ class WishListController extends Controller
 
     public function index()
     {
-        $products = Product::with('variants', 'category', 'statistics', 'tax')->whereHas('wishListedUsers', function ($query) {
-            $query->where('user_id', auth()->id());
-        })->get();
+        $products = Product::query()
+            ->with('variants', 'category', 'statistics', 'tax')
+            ->whereHas('wishListedUsers', function ($query) {
+                $query->where('user_id', auth()->id());
+            })->get();
 
         return ProductResource::collection($products);
     }
