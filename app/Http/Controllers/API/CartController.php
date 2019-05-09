@@ -9,8 +9,7 @@ use App\Http\Resources\CartCheckoutCollection;
 use App\Http\Resources\CartCollection;
 use App\Jobs\AddToCart;
 
-class CartController extends Controller
-{
+class CartController extends Controller {
 
     function __construct()
     {
@@ -38,6 +37,10 @@ class CartController extends Controller
 
     private function getCartCollection()
     {
-        return Cart::with('product', 'color', 'size')->get();
+        return auth()
+            ->user()
+            ->carts()
+            ->with('product', 'color', 'size')
+            ->get();
     }
 }

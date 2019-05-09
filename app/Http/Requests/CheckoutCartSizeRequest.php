@@ -46,7 +46,12 @@ class CheckoutCartSizeRequest extends FormRequest {
 
     public function cart()
     {
-        $cart = Cart::find($this->route('cart'));
+        $cart = auth()
+            ->user()
+            ->carts()
+            ->find(
+                $this->route('cart')
+            );
 
         abort_if($cart === null, response()->json([], 404));
 
