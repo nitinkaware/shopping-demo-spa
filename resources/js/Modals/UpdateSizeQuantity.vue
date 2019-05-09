@@ -1,6 +1,10 @@
 <template>
     <div>
-        <modal name="product-quantity-size" :width="200" :height="150" :pivotX="0.5" :pivotY="0.3"
+        <modal name="product-quantity-size"
+               :width="200"
+               :height="150"
+               :pivotX="0.5"
+               :pivotY="0.3"
                @before-open="beforeOpen">
             <div class="cart">
                 <div class="card-body">
@@ -17,12 +21,11 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-sm btn-primary btn-block" @click="handleSubmit"
+                                <button class="btn btn-sm btn-primary btn-block"
+                                        :class="updating ? 'btn-loading' : ''"
+                                        @click="handleSubmit"
                                         :disabled="updating">
-                                    <i :class="updating ? 'fa fa-spinner fa-spin' : 'fe fe-save'"
-                                       data-toggle="tooltip"
-                                       title="" data-original-title="Save"></i>
-                                    {{ updating ? '' : 'Save' }}
+                                    Save
                                 </button>
                             </div>
                         </div>
