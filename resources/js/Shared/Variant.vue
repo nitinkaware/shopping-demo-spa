@@ -3,7 +3,7 @@
         <h4 class="card-title mb-3"><span v-text="productName"></span></h4>
 
         <div class="product-price mb-3">
-            <strong v-if="!! price">&#8377; {{ price }} </strong>
+            <strong v-if="!! price">&#8377; {{ price | toIndianMoneyFormat }} </strong>
             <span v-if="!! orderCount"
                   class="text-secondary"> Sold: {{ orderCount }}</span>
             <span v-if="!! shares">| Shares: {{ shares }}</span>
@@ -119,7 +119,7 @@
         },
         computed: {
             currentSvgComponent: function () {
-               return this.itemAlreadyInCart ? 'arrow-thin-right' : 'shopping-bag';
+                return this.itemAlreadyInCart ? 'arrow-thin-right' : 'shopping-bag';
             },
             itemCartClass: function () {
                 if (this.isAdding) {
