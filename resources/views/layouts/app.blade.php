@@ -42,7 +42,7 @@
                     <div class="d-flex order-lg-2 ml-auto">
 
                         @auth
-                            <cart-menu :prop-count="{{ \App\Cart::count() }}"></cart-menu>
+                            <cart-menu :prop-count="{{ auth()->user()->carts()->count() }}"></cart-menu>
                         @endauth
 
                         @guest

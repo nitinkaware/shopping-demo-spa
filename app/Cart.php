@@ -17,10 +17,6 @@ class Cart extends Model {
     protected static function boot()
     {
         parent::boot();
-
-        static::addGlobalScope('user_id', function (Builder $builder) {
-            $builder->where('user_id', auth()->id());
-        });
     }
 
     public function product()
