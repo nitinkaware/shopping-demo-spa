@@ -45,7 +45,8 @@
                     <span class="text-secondary text-center">There is nothing in your cart. Lets add some item.</span>
                     <router-link to="/my/wishlist"
                                  class="btn btn-instagram mt-3">
-                        <svg class="tw-inline tw-fill-current tw-h-4 tw-w-4" xmlns="http://www.w3.org/2000/svg"
+                        <svg class="tw-inline tw-fill-current tw-h-4 tw-w-4"
+                             xmlns="http://www.w3.org/2000/svg"
                              viewBox="0 0 20 20">
                             <path d="M15 9h-3v2h3v3h2v-3h3V9h-3V6h-2v3zM0 3h10v2H0V3zm0 8h10v2H0v-2zm0-4h10v2H0V7zm0 8h10v2H0v-2z"/>
                         </svg>
@@ -99,14 +100,15 @@
                                     <td class="text-center">
                                 <span class="cursor"
                                       @click="showSizeModal(item)">
-                                    {{ item.size.name }} <i v-if=" !!item.size.name"
-                                                            class="fa fa-caret-down"></i>
+                                    {{ item.size.name }}
+                                    <cheveron-down v-if=" !!item.size.name"></cheveron-down>
                                 </span>
                                     </td>
                                     <td class="text-center">
                                 <span class="cursor"
                                       @click="showQuantityModal(item)">
-                                    {{ item.quantity }} <i class="fa fa-caret-down"></i>
+                                    {{ item.quantity }}
+                                    <cheveron-down></cheveron-down>
                                 </span>
                                     </td>
                                     <td class="text-center">
@@ -147,7 +149,8 @@
     export default {
         props: ['propItemsInCart'],
         components: {
-            'cart-quantity-size': () => import('../../Modals/UpdateSizeQuantity')
+            'cart-quantity-size': () => import('../../Modals/UpdateSizeQuantity'),
+            'cheveron-down': () => import('../../SVG/CheveronDown'),
         },
         data: function () {
             return {
