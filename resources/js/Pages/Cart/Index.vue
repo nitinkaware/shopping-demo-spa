@@ -10,34 +10,9 @@
                 <cart-quantity-size></cart-quantity-size>
                 <div class="col-4"
                      style="margin-left: 30%"
-                     v-if="!hasItemInCart">
+                     v-if="!this.itemsInCart.length">
 
-                    <svg height="200pt"
-                         viewBox="0 -16 512 512"
-                         width="200pt"
-                         class="ml-3"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path d="m272 424c0 30.929688-25.070312 56-56 56s-56-25.070312-56-56 25.070312-56 56-56 56 25.070312 56 56zm0 0"
-                              fill="#57565c"/>
-                        <path d="m464 424c0 30.929688-25.070312 56-56 56s-56-25.070312-56-56 25.070312-56 56-56 56 25.070312 56 56zm0 0"
-                              fill="#57565c"/>
-                        <path d="m496 336h-364.335938l-80-304h-35.664062c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h60.335938l80 304h339.664062c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"
-                              fill="#77959e"/>
-                        <path d="m448 272h-267.054688l-54.65625-208h385.710938v144c0 35.34375-28.65625 64-64 64zm0 0"
-                              fill="#fdd835"/>
-                        <g fill="#fbc02d">
-                            <path d="m384 224c-8.832031 0-16-7.167969-16-16v-96c0-8.832031 7.167969-16 16-16s16 7.167969 16 16v96c0 8.832031-7.167969 16-16 16zm0 0"/>
-                            <path d="m464 224c-8.832031 0-16-7.167969-16-16v-96c0-8.832031 7.167969-16 16-16s16 7.167969 16 16v96c0 8.832031-7.167969 16-16 16zm0 0"/>
-                            <path d="m304 224c-8.832031 0-16-7.167969-16-16v-96c0-8.832031 7.167969-16 16-16s16 7.167969 16 16v96c0 8.832031-7.167969 16-16 16zm0 0"/>
-                            <path d="m224 224c-8.832031 0-16-7.167969-16-16v-96c0-8.832031 7.167969-16 16-16s16 7.167969 16 16v96c0 8.832031-7.167969 16-16 16zm0 0"/>
-                        </g>
-                        <path d="m216 448c-25.28125 0-46.449219-16.945312-53.390625-40-1.539063 5.105469-2.609375 10.398438-2.609375 16 0 30.878906 25.121094 56 56 56s56-25.121094 56-56c0-5.601562-1.070312-10.894531-2.609375-16-6.941406 23.054688-28.109375 40-53.390625 40zm0 0"
-                              fill="#2d2d30"/>
-                        <path d="m408 448c-25.28125 0-46.449219-16.945312-53.390625-40-1.539063 5.105469-2.609375 10.398438-2.609375 16 0 30.878906 25.121094 56 56 56s56-25.121094 56-56c0-5.601562-1.070312-10.894531-2.609375-16-6.941406 23.054688-28.109375 40-53.390625 40zm0 0"
-                              fill="#2d2d30"/>
-                        <path d="m448 240h-275.457031l8.417969 32h267.039062c35.34375 0 64-28.65625 64-64v-32c0 35.34375-28.65625 64-64 64zm0 0"
-                              fill="#fbc02d"/>
-                    </svg>
+                    <empty-cart></empty-cart>
 
                     <h3 class="mt-3 text-center tw-text-2xl tw-text-gray-900">
                         Hey, it feels so light!
@@ -58,7 +33,7 @@
                     <div class="row">
                         <div class="col-md-12 tw-text-2xl tw-text-base tw-mb-2">
                             <div class="float-left">
-                                <h3>My Shopping Cart ({{ totalItemsInCartCount }})</h3>
+                                <h3>My Shopping Cart ({{ this.itemsInCart.length }})</h3>
                             </div>
                             <div class="float-right">
                                 <h4>Total: {{ total | toIndianMoneyFormat }}</h4>
@@ -151,6 +126,7 @@
         components: {
             'cart-quantity-size': () => import('../../Modals/UpdateSizeQuantity'),
             'cheveron-down': () => import('../../SVG/CheveronDown'),
+            'empty-cart': () => import('../../SVG/EmptyCart'),
         },
         data: function () {
             return {
@@ -164,9 +140,6 @@
             });
         },
         computed: {
-            hasItemInCart: function () {
-                return this.itemsInCart.length;
-            },
             total: function () {
                 return collect(this.itemsInCart).map(function (item) {
                     let productTotal = item.price * item.quantity;
@@ -175,10 +148,7 @@
                     item['calculated_price'] = (productTotal) + tax;
                     return item;
                 }).sum('calculated_price');
-            },
-            totalItemsInCartCount: function () {
-                return collect(this.itemsInCart).count();
-            },
+            }
         },
         methods: {
             showQuantityModal(cart) {
