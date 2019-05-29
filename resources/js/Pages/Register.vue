@@ -107,14 +107,11 @@
                 form: new Form
             }
         },
-        mounted() {
-            console.log('Component mounted.')
-        },
         methods: {
             register() {
                 this.form.post(route('register'), this.registerForm)
                     .then((response) => {
-                        Form.defaults.axios.headers.common["X-CSRF-TOKEN"] = response.csrfToken;
+                        window.location = route('home');
                     })
             }
         }
